@@ -1,10 +1,11 @@
 import React from 'react';
+import './styles.css';
+import Header from '../../components/Header';
 
 export default function Home() {
 	return (
-		<div>
-			<h1>Encontre o computador adequado ao seu perfil</h1>
-			<p>aaaaaaa</p>
-		</div>
+		<>
+			<Header/>
+		</>
 	);
 }

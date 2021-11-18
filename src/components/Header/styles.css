@@ -1,0 +1,28 @@
+h1 {
+  font-weight: bold;
+  font-size: 45px;
+  color: #FFFFFF;
+  max-width: 563px;
+}
+
+h1 span {
+	color: #5CD5A8;
+}
+
+.container-header {
+  display: flex;
+  flex-direction: column;
+  row-gap: 50px;
+
+  margin-top: 20vh;
+}
+
+.logo {
+  display: flex;
+  column-gap: 11px;
+  align-items: center;
+
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: normal;
+}

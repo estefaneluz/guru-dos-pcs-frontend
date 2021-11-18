@@ -1,0 +1,14 @@
+.btn-light-green {
+    all: unset;
+    cursor: pointer;
+    
+    background-color: #5CD5A8;
+    border-radius: 6px;
+    padding: 20px 50px;
+
+    text-align: center;
+    color: black;
+    text-transform: uppercase;
+
+    width: max-content;
+}
