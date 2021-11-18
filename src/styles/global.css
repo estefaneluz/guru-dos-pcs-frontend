@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #1B242B;
+  padding: 34px 106px;
+
+  display: flex;
+  flex-direction:column;
+}
