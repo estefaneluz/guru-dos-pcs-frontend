@@ -1,0 +1,18 @@
+.button-menu {
+  all: unset;
+  cursor: pointer;
+
+  padding: 14px 30px;
+  border-radius: 6px;
+  background-color: rgba(92, 213, 168, 0.69);
+  color: #000000;
+  font-weight: 500;
+}
+
+.button-menu.--activated {
+  background-color: transparent;
+  padding: 12px 28px;
+  border: 2px solid #489E81;
+  color: #5CD5A8;
+}
+
