@@ -7,7 +7,12 @@ export default function Home() {
 	return (
 		<>
 			<Header/>
-			<Step />
+			<Step 
+				number="1"
+				title="Diagnosticar Perfil"
+				description="Quais programas você usa ou pretende utilizar?"
+				helpText="Se o programa não estiver na lista, selecione um similiar."
+			/>
 		</>
 	);
 }
