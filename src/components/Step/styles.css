@@ -1,0 +1,32 @@
+.container-step {
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  grid-template-rows: repeat(2, 0.5fr);
+  align-items: center;
+
+  grid-column-gap: 15px;
+  color: #FFFFFF;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #5CD5A8;
+  text-align: center;
+  line-height:40px;
+
+  color: #1B242B;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.container-step h2 {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.step-description {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
