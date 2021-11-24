@@ -4,7 +4,7 @@ import Header from '../../components/Header'
 import Step from '../../components/Step'
 import ButtonMenu from '../../components/ButtonMenu'
 import data from '../../components/ButtonMenu/mock.json'
-// import { RangeSlider } from '../../components/RangeSlider'
+import { RangeSlider } from '../../components/RangeSlider'
 import { ProfileContent } from '../../components/ProfileContent'
 import { ProgramsButton } from '../../components/ProgramsButton'
 
@@ -38,8 +38,8 @@ export default function Home() {
           )
         })}
       </div>
-      {/* {clicked && <ProfileContent />}
-      {clicked && (
+      {(toggleMenu !== -1) && <ProfileContent />}
+      {(toggleMenu !== -1) && (
         <div className="programs-button-wrapper">
           <ProgramsButton
             title="Visual Studio Code"
@@ -62,14 +62,14 @@ export default function Home() {
             performance="low"
           />
         </div>
-      )} */}
+      )}
       <Step
         number="2"
         title="Valor de Investimento"
         description="Qual o valor máximo e mínimo que está disposto a investir?"
         mt="124px"
       />
-      {/* <RangeSlider /> */}
+      <RangeSlider />
     </>
   )
 }

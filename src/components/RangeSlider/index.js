@@ -1,11 +1,52 @@
 import React, { useState } from 'react';
-import Arrow from '../../assets/arrow-right.svg';
+import arrowRight from '../../assets/arrow-right.svg';
+import { Box, Slider } from '@mui/material/';
+import DarkButton from '../DarkButton';
 
 import './style.css';
 
+function valuetext(value) {
+  return `R$ ${value}`;
+}
+
+const minDistance = 1;
+
+const marks = [
+  {
+    value: 1000,
+    label: 'R$ 1.000,00',
+  },
+  {
+    value: 20000,
+    label: 'R$ 20.000,000',
+  },
+];
+
+const currencyBRL = (value) => {
+  const formattedValue = value.toLocaleString(
+    'pt-BR', 
+    { style: 'currency', currency: 'BRL' }
+  );
+
+    return formattedValue;
+};
+
 export const RangeSlider = () => {
-	const [ minValue, setMinValue ] = useState();
-	const [ maxValue, setMaxValue ] = useState();
+	const [price, setPrice] = React.useState([20, 37]);
+
+	const handlePrice = (event, newValue, activeThumb) => {
+    if (!Array.isArray(newValue)) {
+      return;
+    }
+
+    if (activeThumb === 0) {
+      setPrice([Math.min(newValue[0], price[1] - minDistance), price[1]]);
+    } else {
+      setPrice([price[0], Math.max(newValue[1], price[0] + minDistance)]);
+    }
+		
+  };
+
 
 	return (
 		<div className="range-wrapper">
@@ -13,21 +54,20 @@ export const RangeSlider = () => {
 				<label htmlFor="checkbox"> Sem valor estipulado </label>
 				<input name="checkbox" type="checkbox" />
 			</div>
-
-			<input type="range" min="0" max="50" value="25" />
-			<input type="range" min="50" max="100" value="75" />
-
-			<div className="ranges">
-				<div className="track" />
-				<div className="range" />
-				<div className="thumb --left" />
-				<div className="thumb --right" />
-			</div>
-
-			<button className="button">
-				Gerar computador
-				<img src={Arrow} alt="seta" />
-			</button>
+			<Box sx={{ width: 470 }}>
+				<Slider
+					getAriaLabel={() => 'Minimum distance'}
+					value={price}
+					onChange={handlePrice}
+					valueLabelDisplay="auto"
+					getAriaValueText={valuetext}
+					valueLabelFormat={currencyBRL}
+					// marks={marks}
+					sx={{ color: 'white' }}
+					disableSwap
+				/>
+			</Box>
+			<DarkButton label="Gerar Computador" icon={arrowRight}/>
 		</div>
 	);
 };
