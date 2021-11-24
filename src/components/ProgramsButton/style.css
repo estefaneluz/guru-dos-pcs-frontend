@@ -1,0 +1,43 @@
+.selected-button {
+  all: unset;
+  padding: 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.selected-button.high {
+  background-color: #f35d5d;
+}
+
+.selected-button.medium {
+  background-color: #489e81;
+}
+
+.selected-button.low {
+  background-color: #baeedb;
+}
+
+.--selected {
+  padding: 18px;
+}
+
+.selected-button.high.--selected {
+  background-color: #f35d5d;
+  background-color: transparent;
+  border: 2px solid #f35d5d;
+  color: #f35d5d;
+}
+
+.selected-button.medium.--selected {
+  background-color: #489e81;
+  background-color: transparent;
+  color: #489e81;
+  border: 2px solid #489e81;
+}
+
+.selected-button.low.--selected {
+  background-color: #baeedb;
+  background-color: transparent;
+  color: #baeedb;
+  border: 2px solid #baeedb;
+}
