@@ -72,7 +72,23 @@ export default function Home() {
         mt="124px"
       />
       <RangeSlider />
-      <ItemCard title='Ryzen 3 3200G' icon={cpuIcon} type="Processador" brand="AMD"/>
+      <ItemCard
+        title='Ryzen 3 3200G'
+        icon={cpuIcon}
+        type="Processador"
+        brand="AMD"
+        price="656,00"
+        content={[
+          {
+            label: "Frequência",
+            value: "3.2 GHz"
+          },
+          {
+            label: "Socket",
+            value: "AM4"
+          }
+        ]}
+      />
     </>
   )
 }

@@ -10,6 +10,9 @@
   color: #FFFFFF;
 
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
 }
 
 .card-header {
@@ -24,6 +27,29 @@
   color: #489E81;
   font-size: 24px;
   font-weight: bold;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+}
+
+.card-content span {
+  color: #BAEEDB;
+  font-weight: 600;
+}
+
+.item-price {
+  color: #5CD5A8;
+  font-weight: 600;
+}
+
+.content-row {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .tag-container {

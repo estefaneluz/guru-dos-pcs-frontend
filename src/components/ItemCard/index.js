@@ -15,11 +15,27 @@ export default function ItemCard(props) {
         <img src={threeDotsIcon} alt="icone para exibir mais informações da peça" />
       </div>
 
-      {/* <div>
-        <p><span></span></p>
-        <p><span></span></p>
-
-      </div> */}
+      <div className="card-content">
+        <div className="content-row --one">
+          <p>
+            <span>{`${props.content[0].label}: `}</span>
+            {props.content[0].value}
+          </p>
+          {props.content.length === 3 && (
+            <p>
+              <span>{`${props.content[2].label}: `}</span>
+              {props.content[2].value}
+            </p>
+          )}
+        </div>
+        <div className="content-row --two">
+          <p>
+            <span>{`${props.content[1].label}: `}</span>
+            {props.content[1].value}
+          </p>
+          <p className="item-price">R$ {props.price}</p>
+        </div>
+      </div>
     </div>
 	);
 }
