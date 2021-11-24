@@ -32,7 +32,7 @@ const currencyBRL = (value) => {
 };
 
 export const RangeSlider = () => {
-	const [price, setPrice] = React.useState([20, 37]);
+	const [price, setPrice] = React.useState([1500, 2000]);
 
 	const handlePrice = (event, newValue, activeThumb) => {
     if (!Array.isArray(newValue)) {
@@ -62,6 +62,8 @@ export const RangeSlider = () => {
 					valueLabelDisplay="auto"
 					getAriaValueText={valuetext}
 					valueLabelFormat={currencyBRL}
+					min={1000}
+					max={10000}
 					// marks={marks}
 					sx={{ color: 'white' }}
 					disableSwap
