@@ -1,19 +1,10 @@
 import React, { useState } from 'react';
 import './styles.css';
 
-export default function ButtonMenu({title}) {
-	const [toggleButton, setToggleButton] = useState(false);
-
-	const handleButton = () => {
-		setToggleButton(!toggleButton);
-	}
-
+export default function ButtonMenu({ title, classAtivated, click }) {
 	return (
-		<button
-			className={`button-menu ${!!toggleButton && '--activated'}`} 
-			onClick={handleButton}
-		>
-      {title}
+		<button className={`button-menu ${classAtivated}`} onClick={click}>
+			{title}
 		</button>
 	);
 }

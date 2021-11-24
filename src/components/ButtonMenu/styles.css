@@ -12,7 +12,6 @@
 .button-menu.--activated {
   background-color: transparent;
   padding: 12px 28px;
-  border: 2px solid #489E81;
-  color: #5CD5A8;
+  border: 2px solid #489e81;
+  color: #5cd5a8;
 }
-
