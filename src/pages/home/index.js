@@ -7,6 +7,8 @@ import data from '../../components/ButtonMenu/mock.json'
 import { RangeSlider } from '../../components/RangeSlider'
 import { ProfileContent } from '../../components/ProfileContent'
 import { ProgramsButton } from '../../components/ProgramsButton'
+import ItemCard from '../../components/ItemCard'
+import cpuIcon from '../../assets/computer-components/cpu.svg'
 
 export default function Home() {
   const [toggleMenu, setToggleMenu] = useState(-1)
@@ -70,6 +72,7 @@ export default function Home() {
         mt="124px"
       />
       <RangeSlider />
+      <ItemCard title='Ryzen 3 3200G' icon={cpuIcon} type="Processador" brand="AMD"/>
     </>
   )
 }
