@@ -4,10 +4,10 @@ import './styles.css';
 
 export default function ItemCard(props) {
 	return (
-		<div className="card">
+		<div className="card" onClick={props.openModal}>
       <div className="card-header">
         <img src={props.icon} alt={`${props.title} icon`}/>
-        <p className="card-title">{props.title}</p>
+        <p className="item-title">{props.title}</p>
         <div className="tag-container">
           <div className="tag --blue">{props.type}</div>
           <div className="tag --green">{props.brand}</div>

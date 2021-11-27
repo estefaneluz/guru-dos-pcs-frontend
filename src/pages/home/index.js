@@ -9,9 +9,15 @@ import { ProfileContent } from '../../components/ProfileContent'
 import { ProgramsButton } from '../../components/ProgramsButton'
 import ItemCard from '../../components/ItemCard'
 import cpuIcon from '../../assets/computer-components/cpu.svg'
+import ModalItemDetails from '../../components/Modal/ModaItemDetails'
 
 export default function Home() {
   const [toggleMenu, setToggleMenu] = useState(-1)
+  const [open, setOpen] = useState(false)
+
+  const handleModal = () => {
+    setOpen(!open)
+  }
 
   const handleClicked = (id) => {
     setToggleMenu(id)
@@ -88,7 +94,10 @@ export default function Home() {
             value: "AM4"
           }
         ]}
+        openModal={handleModal}
       />
+
+      <ModalItemDetails handleModal={handleModal} open={open} />
     </>
   )
 }

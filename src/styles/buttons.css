@@ -7,8 +7,27 @@
     padding: 20px 50px;
 
     text-align: center;
-    color: black;
+    color: #000000;
     text-transform: uppercase;
 
     width: max-content;
+}
+
+.btn-dark-green {
+    all:unset;
+    cursor: pointer;
+
+    background-color: #489E81;
+    border-radius: 6px;
+    color: #000000;
+    padding: 11px 18px;
+    width: max-content;
+}
+
+.btn-transparent {
+    all: unset;
+    cursor: pointer;
+
+    text-decoration: underline;
+    color: #FFFFFF;
 }

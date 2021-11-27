@@ -1,0 +1,46 @@
+h3 {
+  color: #FFFFFF;
+  font-weight: normal;
+  font-size: 20px;
+}
+
+ul {
+  list-style: none;
+  color: #FFFFFF;
+}
+
+li span {
+  color: #BAEEDB;
+}
+
+li::before {
+  content: unset;
+}
+
+.item-img-container {
+  background-color: #FFFFFF;
+  padding-top: 18px;
+  border-radius:  6px;
+}
+
+.item-img-container img {
+  padding: 0 18px;
+  width: 150px;
+  height: auto;
+}
+
+.modal-item-price {
+  width: 100%;
+  height: (100% + 3px);
+  border-radius: 0 0 6px 6px;
+  background-color: #489E81;
+  color: #1B242B;
+  text-align: center;
+  padding: 8px 18px;
+}
+
+.item-description {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}

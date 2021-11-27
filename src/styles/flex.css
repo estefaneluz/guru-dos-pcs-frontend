@@ -1,4 +1,14 @@
-/* .row {
+.row {
   display: flex;
   column-gap: 30px;
-} */
+} 
+
+.column {
+  display: flex;
+  flex-direction: column;
+  row-gap: 14px;
+}
+
+.space-between {
+  justify-content: space-between;
+}
