@@ -9,7 +9,7 @@ import { ProfileContent } from '../../components/ProfileContent'
 import { ProgramsButton } from '../../components/ProgramsButton'
 import ItemCard from '../../components/ItemCard'
 import cpuIcon from '../../assets/computer-components/cpu.svg'
-import ModalItemDetails from '../../components/Modal/ModaItemDetails'
+import ModalFeedback from '../../components/Modal/ModalFeedback'
 
 export default function Home() {
   const [toggleMenu, setToggleMenu] = useState(-1)
@@ -97,7 +97,7 @@ export default function Home() {
         openModal={handleModal}
       />
 
-      <ModalItemDetails handleModal={handleModal} open={open} />
+      <ModalFeedback handleModal={handleModal} open={open} />
     </>
   )
 }

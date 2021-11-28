@@ -9,6 +9,7 @@ const modal_style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
+  minWidth: '520px',
   width: 'max-content',
   bgcolor: '#1B242B',
   borderRadius: '10px',
