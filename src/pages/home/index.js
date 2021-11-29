@@ -10,14 +10,17 @@ import { ProgramsButton } from '../../components/ProgramsButton'
 import ItemCard from '../../components/ItemCard'
 import cpuIcon from '../../assets/computer-components/cpu.svg'
 import ModalFeedback from '../../components/Modal/ModalFeedback'
+import MotalItemDetails from '../../components/Modal/ModaItemDetails'
+import DarkButton from '../../components/DarkButton'
+import starFeedbackIcon from '../../assets/star-feedback.svg'
 
 export default function Home() {
   const [toggleMenu, setToggleMenu] = useState(-1)
-  const [open, setOpen] = useState(false)
+  const [openFeedback, setOpenFeedback] = useState(false)
+  const [openItemDetails, setOpenItemDetails] = useState(false)
 
-  const handleModal = () => {
-    setOpen(!open)
-  }
+  const handleModalFeedback = () => setOpenFeedback(!openFeedback)
+  const handleModalItens = () => setOpenItemDetails(!openItemDetails)
 
   const handleClicked = (id) => {
     setToggleMenu(id)
@@ -84,9 +87,16 @@ export default function Home() {
         description="De acordo com as informações fornecidas, geramos o computador adequado."
         mt="124px"
       />
-      <div className="card-wrapper">
+      <DarkButton 
+        className="ml-55-px"
+        label="Enviar Feedback"
+        icon={starFeedbackIcon}
+        click={handleModalFeedback}
+      />
+      <div className="card-wrapper ml-55-px">
         <ItemCard
           title='Ryzen 3 3200G'
+          openModal={handleModalItens}
           icon={cpuIcon}
           type="Processador"
           brand="AMD"
@@ -101,10 +111,10 @@ export default function Home() {
               value: "AM4"
             }
           ]}
-          openModal={handleModal}
         />
         <ItemCard
           title='Ryzen 3 3200G'
+          openModal={handleModalItens}
           icon={cpuIcon}
           type="Processador"
           brand="AMD"
@@ -119,10 +129,10 @@ export default function Home() {
               value: "AM4"
             }
           ]}
-          openModal={handleModal}
         />
       </div>
-      <ModalFeedback handleModal={handleModal} open={open} />
+      <MotalItemDetails handleModal={handleModalItens} open={openItemDetails} />
+      <ModalFeedback handleModal={handleModalFeedback} open={openFeedback} />
     </>
   )
 }
