@@ -1,4 +1,4 @@
-.button_wrapper {
+.button-wrapper {
   display: flex;
   gap: 30px;
   margin-left: 50px;
@@ -11,4 +11,12 @@
   max-width: 500px;
   margin-left: 50px;
   margin-top: 50px;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 40px;
+  row-gap: 30px;
+  margin: 30px 55px 0 55px;
 }

@@ -34,7 +34,7 @@ export default function Home() {
         description="Quais programas você usa ou pretende utilizar?"
         helpText="Se o programa não estiver na lista, selecione um similiar."
       />
-      <div className="button_wrapper">
+      <div className="button-wrapper">
         {data.map((item, id) => {
           return (
             <ButtonMenu 
@@ -78,25 +78,50 @@ export default function Home() {
         mt="124px"
       />
       <RangeSlider />
-      <ItemCard
-        title='Ryzen 3 3200G'
-        icon={cpuIcon}
-        type="Processador"
-        brand="AMD"
-        price="656,00"
-        content={[
-          {
-            label: "Frequência",
-            value: "3.2 GHz"
-          },
-          {
-            label: "Socket",
-            value: "AM4"
-          }
-        ]}
-        openModal={handleModal}
+      <Step
+        number="3"
+        title="Match! Conheça o computador"
+        description="De acordo com as informações fornecidas, geramos o computador adequado."
+        mt="124px"
       />
-
+      <div className="card-wrapper">
+        <ItemCard
+          title='Ryzen 3 3200G'
+          icon={cpuIcon}
+          type="Processador"
+          brand="AMD"
+          price="656,00"
+          content={[
+            {
+              label: "Frequência",
+              value: "3.2 GHz"
+            },
+            {
+              label: "Socket",
+              value: "AM4"
+            }
+          ]}
+          openModal={handleModal}
+        />
+        <ItemCard
+          title='Ryzen 3 3200G'
+          icon={cpuIcon}
+          type="Processador"
+          brand="AMD"
+          price="656,00"
+          content={[
+            {
+              label: "Frequência",
+              value: "3.2 GHz"
+            },
+            {
+              label: "Socket",
+              value: "AM4"
+            }
+          ]}
+          openModal={handleModal}
+        />
+      </div>
       <ModalFeedback handleModal={handleModal} open={open} />
     </>
   )

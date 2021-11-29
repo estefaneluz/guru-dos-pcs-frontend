@@ -50,10 +50,6 @@ export const RangeSlider = () => {
 
 	return (
 		<div className="range-wrapper">
-			<div className="checkbox">
-				<label htmlFor="checkbox"> Sem valor estipulado </label>
-				<input name="checkbox" type="checkbox" />
-			</div>
 			<Box sx={{ width: 470 }}>
 				<Slider
 					getAriaLabel={() => 'Minimum distance'}
@@ -69,6 +65,10 @@ export const RangeSlider = () => {
 					disableSwap
 				/>
 			</Box>
+			<div className="checkbox">
+				<label htmlFor="checkbox"> Sem valor estipulado </label>
+				<input name="checkbox" type="checkbox" />
+			</div>
 			<DarkButton label="Gerar Computador" icon={arrowRight}/>
 		</div>
 	);
