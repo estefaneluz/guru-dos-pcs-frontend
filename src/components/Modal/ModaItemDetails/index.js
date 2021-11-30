@@ -31,7 +31,7 @@ export default function ModalItemDetails({handleModal, open}) {
         </div>
 
         <div className="row space-between">
-          <button className="btn-transparent">Voltar</button>
+          <button className="btn-transparent" onClick={handleModal}>Voltar</button>
           <button className="btn-dark-green">Ir à loja</button>
         </div>
       </ModalBase>

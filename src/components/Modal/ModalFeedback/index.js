@@ -43,7 +43,7 @@ export default function ModalFeedback({handleModal, open}) {
         </div>
         <textarea  placeholder="Campo livre para escrever alguma sugestão de melhoria." />
         <div className="row space-between">
-          <button className="btn-transparent">Voltar</button>
+          <button className="btn-transparent" onClick={handleModal}>Voltar</button>
           <button className="btn-dark-green">Ir à loja</button>
         </div>
       </ModalBase>
