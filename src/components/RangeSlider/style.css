@@ -25,3 +25,12 @@
   height: 10px;
   background-color: #ffffff;
 }
+
+.selected-price {
+  color: #ffffff;
+  margin: 10px 0 20px 0;
+}
+
+.selected-price span {
+  color: #5CD5A8;
+}
