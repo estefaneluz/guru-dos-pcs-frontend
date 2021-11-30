@@ -23,7 +23,7 @@ export default function ModalItemDetails({handleModal, open}) {
                   <p className="tag --green">AMD</p>
                 </div>
               </div>
-              <ul>
+              <ul className="item-details">
                 <li><span>Frequência: </span>3.2GHz - 4.5GHz</li>
               </ul>
             </div>

@@ -4,16 +4,16 @@ h3 {
   font-size: 20px;
 }
 
-ul {
+.item-details {
   list-style: none;
   color: #FFFFFF;
 }
 
-li span {
+.item-details li span {
   color: #BAEEDB;
 }
 
-li::before {
+.item-details li::before {
   content: unset;
 }
 
