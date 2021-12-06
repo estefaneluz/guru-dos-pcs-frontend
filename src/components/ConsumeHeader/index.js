@@ -5,7 +5,7 @@ import arrowDown from '../../assets/arrow-down.svg';
 
 import './style.css';
 
-export const ConsumeHeader = () => {
+export default function ConsumeHeader() {
 	const [ clicked, setClicked ] = useState(false);
 
 	const handleClick = () => {

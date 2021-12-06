@@ -1,0 +1,14 @@
+.button-wrapper {
+  display: flex;
+  gap: 30px;
+  margin-left: 50px;
+}
+
+.programs-button-wrapper {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  max-width: 500px;
+  margin-left: 50px;
+  margin-top: 50px;
+}

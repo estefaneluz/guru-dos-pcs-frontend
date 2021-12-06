@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react/cjs/react.development';
 import './style.css';
 
-export const ProgramsButton = ({ title, performance }) => {
+export default function ProgramsButton({ title, performance }) {
 	const [ activeButton, setActiveButton ] = useState(false);
 
 	const handleClick = () => {
