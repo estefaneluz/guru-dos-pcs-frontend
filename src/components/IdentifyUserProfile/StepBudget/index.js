@@ -4,7 +4,7 @@ import { Box, Slider } from '@mui/material/';
 import DarkButton from '../../DarkButton';
 import Step from '../../Step';
 
-import './style.css';
+import './styles.css';
 
 function valuetext(value) {
 	return `R$ ${value}`;
