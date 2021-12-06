@@ -13,31 +13,31 @@ export default function ModalFeedback({handleModal, open}) {
           <div className="modal-feedback-question">
             <p>Foi fácil gerar um novo computador?</p>
             <div className="feedback-stars-container">
-              <img src={starFilledIcon} />
-              <img src={starFilledIcon} />
-              <img src={starFilledIcon} />
-              <img src={starFilledIcon} />
-              <img src={starFilledIcon} />
+              <img src={starFilledIcon} alt="icone de estrela para feedback. Vale 1 ponto." />
+              <img src={starFilledIcon} alt="icone de estrela para feedback. Vale 2 pontos." />
+              <img src={starFilledIcon} alt="icone de estrela para feedback. Vale 3 pontos."/>
+              <img src={starFilledIcon} alt="icone de estrela para feedback. Vale 4 pontos."/>
+              <img src={starFilledIcon} alt="icone de estrela para feedback. Vale 5 pontos." />
             </div>
           </div>
           <div className="modal-feedback-question">
             <p>Qual nota você dá para o computador?</p>
             <div className="feedback-stars-container">
-              <img src={starFilledIcon} />
-              <img src={starFilledIcon} />
-              <img src={starFilledIcon} />
-              <img src={starFilledIcon} />
-              <img src={starFilledIcon} />
+              <img src={starFilledIcon} alt="icone de estrela para feedback. Vale 1 ponto." />
+              <img src={starFilledIcon} alt="icone de estrela para feedback. Vale 2 pontos." />
+              <img src={starFilledIcon} alt="icone de estrela para feedback. Vale 3 pontos." />
+              <img src={starFilledIcon} alt="icone de estrela para feedback. Vale 4 pontos." />
+              <img src={starFilledIcon} alt="icone de estrela para feedback. Vale 5 pontos." />
             </div>
           </div>
           <div className="modal-feedback-question">
             <p>Foi fácil entender as informações?</p>
             <div className="feedback-stars-container">
-              <img src={starFilledIcon} />
-              <img src={starFilledIcon} />
-              <img src={starFilledIcon} />
-              <img src={starFilledIcon} />
-              <img src={starFilledIcon} />
+              <img src={starFilledIcon} alt="icone de estrela para feedback. Vale 1 ponto." />
+              <img src={starFilledIcon} alt="icone de estrela para feedback. Vale 2 pontos."/>
+              <img src={starFilledIcon} alt="icone de estrela para feedback. Vale 3 pontos."/>
+              <img src={starFilledIcon} alt="icone de estrela para feedback. Vale 4 pontos."/>
+              <img src={starFilledIcon} alt="icone de estrela para feedback. Vale 5 pontos."/>
             </div>
           </div>
         </div>
