@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import './styles.css'
 import Header from '../../components/Header'
 import Step from '../../components/Step'
-import { RangeSlider } from '../../components/RangeSlider'
 import ItemCard from '../../components/ItemCard'
 import cpuIcon from '../../assets/computer-components/cpu.svg'
 import ModalFeedback from '../../components/Modal/ModalFeedback'
@@ -10,6 +9,7 @@ import MotalItemDetails from '../../components/Modal/ModaItemDetails'
 import DarkButton from '../../components/DarkButton'
 import starFeedbackIcon from '../../assets/star-feedback.svg'
 import StepPrograms from '../../components/IdentifyUserProfile/StepPrograms'
+import StepBudget from '../../components/IdentifyUserProfile/StepBudget'
 
 export default function Home() {
   const [openFeedback, setOpenFeedback] = useState(false)
@@ -22,13 +22,7 @@ export default function Home() {
     <>
       <Header />
       <StepPrograms />
-      <Step
-        number="2"
-        title="Valor de Investimento"
-        description="Qual o valor máximo e mínimo que está disposto a investir?"
-        mt="124px"
-      />
-      <RangeSlider />
+      <StepBudget />
       <Step
         number="3"
         title="Match! Conheça o computador"

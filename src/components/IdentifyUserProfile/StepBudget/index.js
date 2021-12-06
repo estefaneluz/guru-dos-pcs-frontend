@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import arrowRight from '../../assets/arrow-right.svg';
+import arrowRight from '../../../assets/arrow-right.svg'
 import { Box, Slider } from '@mui/material/';
-import DarkButton from '../DarkButton';
+import DarkButton from '../../DarkButton';
+import Step from '../../Step';
 
 import './style.css';
 
@@ -17,7 +18,7 @@ const currencyBRL = (value) => {
 	return formattedValue;
 };
 
-export const RangeSlider = () => {
+export default function StepBudget() {
 	const [price, setPrice ] = useState([ 1500, 3000 ]);
 	const [check, setCheck] = useState(false);  
 
@@ -36,6 +37,13 @@ export const RangeSlider = () => {
 	};
 
 	return (
+		<>
+		<Step
+        number="2"
+        title="Valor de Investimento"
+        description="Qual o valor máximo e mínimo que está disposto a investir?"
+        mt="124px"
+    />
 		<div className="range-wrapper">
 			{!check && (
 				<>
@@ -71,5 +79,6 @@ export const RangeSlider = () => {
 			</div>
 			<DarkButton label="Gerar Computador" icon={arrowRight} />
 		</div>
+	</>
 	);
 };
