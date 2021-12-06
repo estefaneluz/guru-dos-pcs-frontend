@@ -9,10 +9,20 @@ import data from '../../ButtonMenu/mock.json';
 export default function StepPrograms() {
   const [toggleMenu, setToggleMenu] = useState(-1);
   const [categories, setCategories] = useState([]);
+  const [programs, setProgramas] = useState([]);
 
-  const handleClicked = (id) => {
+  const handleClicked = async (id) => {
     setToggleMenu(id)
   }
+
+  useEffect(() => {
+    const getPrograms = async () => {
+      const response = await fetch(`http://localhost:5000/programa/${toggleMenu}`, { method: "GET" });
+      setProgramas(await response.json());
+    }
+
+    getPrograms()
+  }, [toggleMenu])
 
   useEffect(() => {
     const getAllCategories = async () => {
@@ -34,7 +44,7 @@ export default function StepPrograms() {
         helpText="Se o programa não estiver na lista, selecione um similiar."
       />
         <div className="button-wrapper">
-          {categories.length && categories.map((category) => {
+          {!!categories.length && categories.map((category) => {
             return (
               <ButtonMenu 
                 key={category.id} 
@@ -46,30 +56,14 @@ export default function StepPrograms() {
           })}
         </div>
         {(toggleMenu !== -1) && <ConsumeHeader />}
-        {(toggleMenu !== -1) && (
-          <div className="programs-button-wrapper">
-            <ProgramsButton
-              title="Visual Studio Code"
-              performance="low"
-            />
-            <ProgramsButton
-              title="Android Studio"
-              performance="high"
-            />
-            <ProgramsButton
-              title="Eclipse"
-              performance="high"
-            />
-            <ProgramsButton
-              title="Jupyter"
-              performance="medium"
-            />
-            <ProgramsButton
-              title="WebStorm"
-              performance="low"
-            />
-          </div>
-      )}
+        <div className="programs-button-wrapper">
+          {(toggleMenu !== -1 && !!programs.length) && programs.map((program) =>
+              <ProgramsButton
+                title={program.nome}
+                performance={program.nivel}
+              />
+          )}
+        </div>
     </>
 	);
 }

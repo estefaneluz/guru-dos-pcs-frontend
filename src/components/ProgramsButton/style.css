@@ -5,15 +5,15 @@
   cursor: pointer;
 }
 
-.selected-button.high {
+.selected-button.alto {
   background-color: #f35d5d;
 }
 
-.selected-button.medium {
+.selected-button.medio {
   background-color: #489e81;
 }
 
-.selected-button.low {
+.selected-button.baixo {
   background-color: #baeedb;
 }
 
@@ -21,21 +21,21 @@
   padding: 18px;
 }
 
-.selected-button.high.--selected {
+.selected-button.alto.--selected {
   background-color: #f35d5d;
   background-color: transparent;
   border: 2px solid #f35d5d;
   color: #f35d5d;
 }
 
-.selected-button.medium.--selected {
+.selected-button.medio.--selected {
   background-color: #489e81;
   background-color: transparent;
   color: #489e81;
   border: 2px solid #489e81;
 }
 
-.selected-button.low.--selected {
+.selected-button.baixo.--selected {
   background-color: #baeedb;
   background-color: transparent;
   color: #baeedb;
