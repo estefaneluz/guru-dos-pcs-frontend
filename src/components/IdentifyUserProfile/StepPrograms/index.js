@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles.css';
 import Step from '../../Step';
 import ButtonMenu from '../../ButtonMenu';
@@ -8,10 +8,20 @@ import data from '../../ButtonMenu/mock.json';
 
 export default function StepPrograms() {
   const [toggleMenu, setToggleMenu] = useState(-1);
+  const [categories, setCategories] = useState([]);
 
   const handleClicked = (id) => {
     setToggleMenu(id)
   }
+
+  useEffect(() => {
+    const getAllCategories = async () => {
+      const response = await fetch("http://localhost:5000/categorias", { method: "GET" });
+      setCategories(await response.json());
+    }
+
+    getAllCategories()
+  }, [])
 
 	return (
 		<>
@@ -24,13 +34,13 @@ export default function StepPrograms() {
         helpText="Se o programa não estiver na lista, selecione um similiar."
       />
         <div className="button-wrapper">
-          {data.map((item, id) => {
+          {categories.length && categories.map((category) => {
             return (
               <ButtonMenu 
-                key={id} 
-                title={item.name}
-                click={() => handleClicked(id)}
-                classAtivated={toggleMenu === id ? '--activated' : ''}
+                key={category.id} 
+                title={category.categoria}
+                click={() => handleClicked(category.id)}
+                classAtivated={toggleMenu === category.id ? '--activated' : ''}
               />
             )
           })}
