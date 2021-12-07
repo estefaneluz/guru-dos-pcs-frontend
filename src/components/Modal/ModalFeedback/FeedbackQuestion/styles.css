@@ -1,0 +1,39 @@
+.modal-feedback-question {
+  color: #FFFFFF;
+  font-weight: 200;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 6px;
+}
+
+.modal-feedback-question img {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+
+textarea {
+  background-color: #212B33;
+  border: 2px solid #5CD5A8;
+  border-radius: 6px;
+  padding: 16px;
+  color: #FFFFFF;
+  outline: none;
+  resize: none;
+}
+
+
+textarea::-webkit-input-placeholder, 
+textarea:-moz-placeholder,
+textarea::-moz-placeholder,
+textarea:-ms-input-placeholder {
+  font-family: 'Poppins', sans-serif;
+  color: white;
+}
+
+
+.feedback-stars-container {
+  display: flex;
+  column-gap: 16px;
+}
