@@ -29,14 +29,14 @@ li::before {
   border-radius: 4px;
 }
 
-li.high::before {
+li.alto::before {
   background-color: #ef5c5c;
 }
 
-li.medium::before {
+li.medio::before {
   background-color: #489E81;
 }
 
-li.low::before {
+li.baixo::before {
   background-color: #BAEEDB;
 }

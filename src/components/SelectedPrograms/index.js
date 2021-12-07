@@ -1,15 +1,14 @@
 import React from 'react'
 import './style.css'
 
-export const SelectedPrograms = () => {
+export const SelectedPrograms = ({selectedPrograms}) => {
   return (
     <div className="selected-wrapper">
       <div className="content">
         <ul>
-          <li className="high">Android Studio</li>
-          <li className="low">Sublime Text</li>
-          <li className="low">Visual Studio Code</li>
-          <li className="medium">PyCharm</li>
+          {!!selectedPrograms.length && selectedPrograms.map((program) =>
+            <li className={program.nivel}>{program.nome}</li>
+          )}
         </ul>
       </div>
     </div>

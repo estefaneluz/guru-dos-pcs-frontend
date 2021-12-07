@@ -4,12 +4,12 @@ import Step from '../../Step';
 import ButtonMenu from '../../ButtonMenu';
 import ConsumeHeader from '../../ConsumeHeader';
 import ProgramsButton from '../../ProgramsButton';
-import data from '../../ButtonMenu/mock.json';
 
 export default function StepPrograms() {
   const [toggleMenu, setToggleMenu] = useState(-1);
   const [categories, setCategories] = useState([]);
   const [programs, setProgramas] = useState([]);
+  const [selectedPrograms, setSelectedPrograms] = useState([]);
 
   const handleClicked = async (id) => {
     setToggleMenu(id)
@@ -55,12 +55,13 @@ export default function StepPrograms() {
             )
           })}
         </div>
-        {(toggleMenu !== -1) && <ConsumeHeader />}
+        {(toggleMenu !== -1) && <ConsumeHeader selectedPrograms={selectedPrograms} />}
         <div className="programs-button-wrapper">
           {(toggleMenu !== -1 && !!programs.length) && programs.map((program) =>
               <ProgramsButton
-                title={program.nome}
-                performance={program.nivel}
+                program={program}
+                setSelectedPrograms={setSelectedPrograms}
+                selectedPrograms={selectedPrograms}
               />
           )}
         </div>
