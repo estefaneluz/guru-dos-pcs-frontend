@@ -26,11 +26,11 @@
   background-color: #ffffff;
 }
 
-.selected-price {
+.selected-budget {
   color: #ffffff;
   margin: 10px 0 20px 0;
 }
 
-.selected-price span {
+.selected-budget span {
   color: #5CD5A8;
 }

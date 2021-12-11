@@ -19,20 +19,20 @@ const currencyBRL = (value) => {
 };
 
 export default function StepBudget() {
-	const [price, setPrice ] = useState([ 1500, 3000 ]);
+	const [budget, setBudget ] = useState([ 1500, 3000 ]);
 	const [check, setCheck] = useState(false);  
 
 	const handleChecked = (e) => setCheck(e.target.checked);
 
-	const handlePrice = (event, newValue, activeThumb) => {
+	const handleBudget = (event, newValue, activeThumb) => {
 		if (!Array.isArray(newValue)) {
 			return;
 		}
 
 		if (activeThumb === 0) {
-			setPrice([ Math.min(newValue[0], price[1] - minDistance), price[1] ]);
+			setBudget([ Math.min(newValue[0], budget[1] - minDistance), budget[1] ]);
 		} else {
-			setPrice([ price[0], Math.max(newValue[1], price[0] + minDistance) ]);
+			setBudget([ budget[0], Math.max(newValue[1], budget[0] + minDistance) ]);
 		}
 	};
 
@@ -50,8 +50,8 @@ export default function StepBudget() {
 				<Box sx={{ width: 470, marginTop: 3 }}>
 					<Slider
 						getAriaLabel={() => 'Minimum distance'}
-						value={price}
-						onChange={handlePrice}
+						value={budget}
+						onChange={handleBudget}
 						valueLabelDisplay="auto"
 						getAriaValueText={valuetext}
 						valueLabelFormat={currencyBRL}
@@ -61,14 +61,14 @@ export default function StepBudget() {
 						disableSwap
 					/>
 				</Box>
-				<div className="row selected-price">
+				<div className="row selected-budget">
 					<p>
 						<span>Valor mínimo: </span> 
-						{price[0].toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}
+						{budget[0].toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}
 					</p>
 					<p>
 						<span> Valor máximo: </span>
-						{price[1].toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}
+						{budget[1].toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}
 					</p>
 				</div>
 				</>
