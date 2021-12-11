@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import arrowRight from '../../../assets/arrow-right.svg'
 import { Box, Slider } from '@mui/material/';
 import DarkButton from '../../DarkButton';
 import Step from '../../Step';
+import { UserProfileStatesContext } from '../../../contexts/UserProfileStatesContext';
 
 import './styles.css';
 
@@ -19,10 +20,9 @@ const currencyBRL = (value) => {
 };
 
 export default function StepBudget() {
-	const [budget, setBudget ] = useState([ 1500, 3000 ]);
-	const [check, setCheck] = useState(false);  
-
-	const handleChecked = (e) => setCheck(e.target.checked);
+	const { budget, setBudget, freeBudget, setFreeBudget } = useContext(UserProfileStatesContext);
+	
+	const handleChecked = (e) => setFreeBudget(e.target.checked);
 
 	const handleBudget = (event, newValue, activeThumb) => {
 		if (!Array.isArray(newValue)) {
@@ -45,7 +45,7 @@ export default function StepBudget() {
         mt="124px"
     />
 		<div className="range-wrapper">
-			{!check && (
+			{!freeBudget && (
 				<>
 				<Box sx={{ width: 470, marginTop: 3 }}>
 					<Slider
@@ -75,7 +75,7 @@ export default function StepBudget() {
 			)}
 			<div className="checkbox">
 				<label htmlFor="checkbox"> Sem valor estipulado </label>
-				<input checked={check} name="checkbox" type="checkbox" onChange={(e) => handleChecked(e)} />
+				<input checked={freeBudget} name="checkbox" type="checkbox" onChange={(e) => handleChecked(e)} />
 			</div>
 			<DarkButton label="Gerar Computador" icon={arrowRight} />
 		</div>

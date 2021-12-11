@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './styles.css';
 import Step from '../../Step';
 import ButtonMenu from '../../ButtonMenu';
 import ConsumeHeader from '../../ConsumeHeader';
 import ProgramsButton from '../../ProgramsButton';
+import { UserProfileStatesContext } from '../../../contexts/UserProfileStatesContext';
 
 export default function StepPrograms() {
   const [toggleMenu, setToggleMenu] = useState(-1);
   const [categories, setCategories] = useState([]);
   const [programs, setProgramas] = useState([]);
-  const [selectedPrograms, setSelectedPrograms] = useState([]);
+
+  const { selectedPrograms, setSelectedPrograms } = useContext(UserProfileStatesContext);
 
   const handleClicked = async (id) => {
     setToggleMenu(id)
