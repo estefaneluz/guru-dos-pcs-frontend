@@ -1,19 +1,22 @@
 import './styles.css'
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import ModalBase from '../index'
 import FeedbackQuestion from './FeedbackQuestion'
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 
+import { ModalStatesContext } from '../../../contexts/ModalStatesContext';
+
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-export default function ModalFeedback({handleModal, open}) {
+export default function ModalFeedback() {
   const [howEasyToGenerate, setHowEasyToGenerate] = useState(0);
   const [serviceSatisfaction, setServiceSatisfaction] = useState(0);
   const [howEasyToUnderstand, setHowEasyToUnderstand] = useState(0);
   const [message, setMessage] = useState('');
+  const { handleModalFeedback, openFeedback } = useContext(ModalStatesContext);
 
   const [alertMessage, setAlertMessage] = useState({severity: '', message: ''});
 
@@ -58,7 +61,7 @@ export default function ModalFeedback({handleModal, open}) {
 
   return (
     <>
-      <ModalBase handleModal={handleModal} open={open} className="column">
+      <ModalBase handleModal={handleModalFeedback} open={openFeedback} className="column">
         <h3>Feedback</h3>
         <div className="modal-question-wrapper">
           <FeedbackQuestion
@@ -83,7 +86,7 @@ export default function ModalFeedback({handleModal, open}) {
           placeholder="Campo livre para escrever alguma sugestão de melhoria."
         />
         <div className="row space-between">
-          <button className="btn-transparent" onClick={handleModal}>Voltar</button>
+          <button className="btn-transparent" onClick={handleModalFeedback}>Voltar</button>
           <button className="btn-dark-green" onClick={sendFeedback}>Enviar</button>
         </div>
       </ModalBase>

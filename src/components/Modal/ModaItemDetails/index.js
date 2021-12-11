@@ -1,12 +1,16 @@
 import './styles.css'
-import React from 'react'
+import React, { useContext } from 'react'
 import ModalBase from '../index'
 import processadorImg from '../../../assets/processador.png'
 
-export default function ModalItemDetails({handleModal, open}) {
+import { ModalStatesContext } from '../../../contexts/ModalStatesContext'
+
+export default function ModalItemDetails() {
+  const { handleModalItens, openItemDetails } = useContext(ModalStatesContext);
+
   return (
     <>
-      <ModalBase handleModal={handleModal} open={open} className="column">
+      <ModalBase handleModal={handleModalItens} open={openItemDetails} className="column">
         <h3>Detalhes do Componente</h3>
         <div>
           <div className="row">
@@ -31,7 +35,7 @@ export default function ModalItemDetails({handleModal, open}) {
         </div>
 
         <div className="row space-between">
-          <button className="btn-transparent" onClick={handleModal}>Voltar</button>
+          <button className="btn-transparent" onClick={handleModalItens}>Voltar</button>
           <button className="btn-dark-green">Ir à loja</button>
         </div>
       </ModalBase>

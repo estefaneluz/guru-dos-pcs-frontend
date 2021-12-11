@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import './styles.css'
 
 import Header from '../../components/Header'
@@ -10,6 +10,7 @@ import StepBudget from '../../components/IdentifyUserProfile/StepBudget'
 import StepComputerResult from '../../components/IdentifyUserProfile/StepComputerResult'
 
 import { UserProfileStatesContext } from '../../contexts/UserProfileStatesContext'
+import { ModalStatesContext } from '../../contexts/ModalStatesContext'
 
 export default function Home() {
   const [openFeedback, setOpenFeedback] = useState(false)
@@ -19,6 +20,9 @@ export default function Home() {
 	const [budget, setBudget ] = useState([ 1500, 3000 ]);
 	const [freeBudget, setFreeBudget] = useState(false);  
 
+  const handleModalFeedback = () => setOpenFeedback(!openFeedback)
+  const handleModalItens = () => setOpenItemDetails(!openItemDetails)
+  
   const userProfileContextValues = {
     selectedPrograms,
     setSelectedPrograms,
@@ -28,8 +32,12 @@ export default function Home() {
     setFreeBudget
   }
 
-  const handleModalFeedback = () => setOpenFeedback(!openFeedback)
-  const handleModalItens = () => setOpenItemDetails(!openItemDetails)
+  const modalContextValues = {
+    openFeedback,
+    handleModalFeedback,
+    openItemDetails,
+    handleModalItens
+  }
 
   return (
     <>
@@ -37,12 +45,11 @@ export default function Home() {
       <UserProfileStatesContext.Provider value={userProfileContextValues}>
         <StepPrograms />
         <StepBudget />
-        <StepComputerResult 
-          handleModalFeedback={handleModalFeedback}
-          handleModalItens={handleModalItens}
-        />
-        <MotalItemDetails handleModal={handleModalItens} open={openItemDetails} />
-        <ModalFeedback handleModal={handleModalFeedback} open={openFeedback} />
+        <ModalStatesContext.Provider value={modalContextValues}>
+          <StepComputerResult />
+          <MotalItemDetails />
+          <ModalFeedback />
+        </ModalStatesContext.Provider>
       </ UserProfileStatesContext.Provider>
     </>
   )
