@@ -13,12 +13,14 @@ import { UserProfileStatesContext } from '../../contexts/UserProfileStatesContex
 import { ModalStatesContext } from '../../contexts/ModalStatesContext'
 
 export default function Home() {
-  const [openFeedback, setOpenFeedback] = useState(false)
-  const [openItemDetails, setOpenItemDetails] = useState(false)
+  const [openFeedback, setOpenFeedback] = useState(false);
+  const [openItemDetails, setOpenItemDetails] = useState(false);
 
   const [selectedPrograms, setSelectedPrograms] = useState([]);
 	const [budget, setBudget ] = useState([ 1500, 3000 ]);
-	const [freeBudget, setFreeBudget] = useState(false);  
+	const [freeBudget, setFreeBudget] = useState(false); 
+
+  const [computer, setComputer] = useState({});
 
   const handleModalFeedback = () => setOpenFeedback(!openFeedback)
   const handleModalItens = () => setOpenItemDetails(!openItemDetails)
@@ -39,17 +41,29 @@ export default function Home() {
     handleModalItens
   }
 
+  const createComputer = async () => {
+    //verificar se não tem selecionado nenhum programa 
+
+    const userProfile = {
+      selectedPrograms,
+      budget,
+      freeBudget
+    }
+  }
+
   return (
     <>
       <Header />
       <UserProfileStatesContext.Provider value={userProfileContextValues}>
         <StepPrograms />
         <StepBudget />
-        <ModalStatesContext.Provider value={modalContextValues}>
-          <StepComputerResult />
-          <MotalItemDetails />
-          <ModalFeedback />
-        </ModalStatesContext.Provider>
+        {!computer &&
+          <ModalStatesContext.Provider value={modalContextValues}>
+            <StepComputerResult />
+            <MotalItemDetails />
+            <ModalFeedback />
+          </ModalStatesContext.Provider>
+        }
       </ UserProfileStatesContext.Provider>
     </>
   )
