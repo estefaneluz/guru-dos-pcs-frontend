@@ -5,7 +5,7 @@ import arrowDown from '../../assets/arrow-down.svg';
 
 import './style.css';
 
-export default function ConsumeHeader({ selectedPrograms }) {
+export default function ConsumeHeader() {
 	const [ clicked, setClicked ] = useState(false);
 
 	const handleClick = () => {
@@ -37,7 +37,7 @@ export default function ConsumeHeader({ selectedPrograms }) {
 					</li>
 				</ul>
 			</div>
-			{clicked && <SelectedPrograms selectedPrograms={selectedPrograms} />}
+			{clicked && <SelectedPrograms />}
 		</div>
 	);
-};
+}

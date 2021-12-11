@@ -43,11 +43,24 @@ export default function Home() {
 
   const createComputer = async () => {
     //verificar se não tem selecionado nenhum programa 
+    if(!selectedPrograms.length) {
+      //alert
+      return;
+    }
+
+    let orcamento;
+    if(freeBudget) {
+      orcamento = false;
+    } else {
+      orcamento = {
+        valor_minimo: budget[0],
+        valor_maximo: budget[1]
+      }
+    }
 
     const userProfile = {
       selectedPrograms,
-      budget,
-      freeBudget
+      orcamento
     }
   }
 

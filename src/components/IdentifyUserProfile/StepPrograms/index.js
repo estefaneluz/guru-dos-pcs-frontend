@@ -1,17 +1,14 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles.css';
 import Step from '../../Step';
 import ButtonMenu from '../../ButtonMenu';
 import ConsumeHeader from '../../ConsumeHeader';
 import ProgramsButton from '../../ProgramsButton';
-import { UserProfileStatesContext } from '../../../contexts/UserProfileStatesContext';
 
 export default function StepPrograms() {
   const [toggleMenu, setToggleMenu] = useState(-1);
   const [categories, setCategories] = useState([]);
   const [programs, setProgramas] = useState([]);
-
-  const { selectedPrograms, setSelectedPrograms } = useContext(UserProfileStatesContext);
 
   const handleClicked = async (id) => {
     setToggleMenu(id)
@@ -57,14 +54,10 @@ export default function StepPrograms() {
             )
           })}
         </div>
-        {(toggleMenu !== -1) && <ConsumeHeader selectedPrograms={selectedPrograms} />}
+        {(toggleMenu !== -1) && <ConsumeHeader />}
         <div className="programs-button-wrapper">
           {(toggleMenu !== -1 && !!programs.length) && programs.map((program) =>
-              <ProgramsButton
-                program={program}
-                setSelectedPrograms={setSelectedPrograms}
-                selectedPrograms={selectedPrograms}
-              />
+              <ProgramsButton program={program} />
           )}
         </div>
     </>

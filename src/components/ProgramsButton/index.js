@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './style.css';
+import { UserProfileStatesContext } from '../../contexts/UserProfileStatesContext';
 
-export default function ProgramsButton({ program, setSelectedPrograms, selectedPrograms }) {
+export default function ProgramsButton({ program }) {
 	const [ activeButton, setActiveButton ] = useState(false);
+	const { selectedPrograms, setSelectedPrograms } = useContext(UserProfileStatesContext);
+	
 	const findProgram = (p) => p.nome === program.nome;
 
 	const handleClick = () => {
