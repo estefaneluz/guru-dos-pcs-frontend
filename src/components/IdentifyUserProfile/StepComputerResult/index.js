@@ -1,8 +1,7 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import Step from '../../Step';
 import DarkButton from '../../DarkButton';
 import ItemCard from '../../ItemCard';
-import cpuIcon from '../../../assets/computer-components/cpu.svg'
 import starFeedbackIcon from '../../../assets/star-feedback.svg'
 
 import { ModalStatesContext } from '../../../contexts/ModalStatesContext';

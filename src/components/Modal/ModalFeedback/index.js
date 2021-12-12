@@ -23,10 +23,6 @@ export default function ModalFeedback() {
   const sendFeedback = async () => {
     handleCloseAlert()
     try {
-      console.log(howEasyToGenerate,
-        serviceSatisfaction,
-        howEasyToUnderstand,
-        message)
       
       const response = await fetch("https://guru-dos-pcs-backend.herokuapp.com/feedback", {
         method: "POST",
