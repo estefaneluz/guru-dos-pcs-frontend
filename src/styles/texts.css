@@ -2,4 +2,9 @@
   color: #489E81;
   font-size: 24px;
   font-weight: bold;
+
+  max-width: 247px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

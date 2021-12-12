@@ -98,7 +98,7 @@ export default function Home() {
         <StepBudget createComputer={createComputer} />
         {showComputer &&
           <ModalStatesContext.Provider value={modalContextValues}>
-            <StepComputerResult />
+            <StepComputerResult computer={computer} />
             <MotalItemDetails />
             <ModalFeedback />
           </ModalStatesContext.Provider>

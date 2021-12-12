@@ -9,7 +9,7 @@ import { ModalStatesContext } from '../../../contexts/ModalStatesContext';
 
 import './styles.css';
 
-export default function StepComputerResult() {
+export default function StepComputerResult({computer}) {
 
   const { handleModalFeedback, handleModalItens  } = useContext(ModalStatesContext);
 	
@@ -28,42 +28,18 @@ export default function StepComputerResult() {
         click={handleModalFeedback}
       />
       <div className="card-wrapper ml-55-px">
-        <ItemCard
-          title='Ryzen 3 3200G'
-          openModal={handleModalItens}
-          icon={cpuIcon}
-          type="Processador"
-          brand="AMD"
-          price="656,00"
-          content={[
-            {
-              label: "Frequência",
-              value: "3.2 GHz"
-            },
-            {
-              label: "Socket",
-              value: "AM4"
-            }
-          ]}
-        />
-        <ItemCard
-          title='Ryzen 3 3200G'
-          openModal={handleModalItens}
-          icon={cpuIcon}
-          type="Processador"
-          brand="AMD"
-          price="656,00"
-          content={[
-            {
-              label: "Frequência",
-              value: "3.2 GHz"
-            },
-            {
-              label: "Socket",
-              value: "AM4"
-            }
-          ]}
-        />
+        {computer.computer.map((componente) => {
+          return  (
+          <ItemCard
+            title={componente.nome}
+            openModal={handleModalItens}
+            icon={componente.icon}
+            type={componente.componente}
+            brand={componente.marca}
+            price={componente.preco}
+            content={componente.content}
+          />
+        )})}
       </div>
 	</>
 	);
