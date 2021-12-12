@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './styles.css'
 
 import Header from '../../components/Header'
@@ -21,6 +21,7 @@ export default function Home() {
 	const [freeBudget, setFreeBudget] = useState(false); 
 
   const [computer, setComputer] = useState({});
+  const [showComputer, setShowComputer] = useState(false);
 
   const handleModalFeedback = () => setOpenFeedback(!openFeedback)
   const handleModalItens = () => setOpenItemDetails(!openItemDetails)
@@ -42,7 +43,10 @@ export default function Home() {
   }
 
   const createComputer = async () => {
-    //verificar se não tem selecionado nenhum programa 
+    setComputer({});
+    setShowComputer(false);
+
+    //verifica se não tiver selecionado nenhum programa
     if(!selectedPrograms.length) {
       //alert
       return;
@@ -58,19 +62,41 @@ export default function Home() {
       }
     }
 
-    const userProfile = {
-      selectedPrograms,
-      orcamento
+    try { 
+      const response = await fetch("http://localhost:5000/computador", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          userProfile: {
+            selectedPrograms: selectedPrograms,
+            orcamento: orcamento
+          }
+        })
+      });
+
+      if(response.ok) {
+        setComputer(await response.json());
+      }
+    } catch {
+      return;
     }
   }
+
+  useEffect(() => {
+    if(!!computer.computer) {
+      setShowComputer(true);
+    }
+  }, [computer])
 
   return (
     <>
       <Header />
       <UserProfileStatesContext.Provider value={userProfileContextValues}>
         <StepPrograms />
-        <StepBudget />
-        {!computer &&
+        <StepBudget createComputer={createComputer} />
+        {showComputer &&
           <ModalStatesContext.Provider value={modalContextValues}>
             <StepComputerResult />
             <MotalItemDetails />

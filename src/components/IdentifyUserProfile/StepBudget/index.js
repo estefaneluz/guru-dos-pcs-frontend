@@ -19,7 +19,7 @@ const currencyBRL = (value) => {
 	return formattedValue;
 };
 
-export default function StepBudget() {
+export default function StepBudget({createComputer}) {
 	const { budget, setBudget, freeBudget, setFreeBudget } = useContext(UserProfileStatesContext);
 	
 	const handleChecked = (e) => setFreeBudget(e.target.checked);
@@ -77,7 +77,7 @@ export default function StepBudget() {
 				<label htmlFor="checkbox"> Sem valor estipulado </label>
 				<input checked={freeBudget} name="checkbox" type="checkbox" onChange={(e) => handleChecked(e)} />
 			</div>
-			<DarkButton label="Gerar Computador" icon={arrowRight} />
+			<DarkButton click={createComputer} label="Gerar Computador" icon={arrowRight} />
 		</div>
 	</>
 	);
