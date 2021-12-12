@@ -63,7 +63,7 @@ export default function Home() {
     }
 
     try { 
-      const response = await fetch("http://localhost:5000/computador", {
+      const response = await fetch("https://guru-dos-pcs-backend.herokuapp.com/computador", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'

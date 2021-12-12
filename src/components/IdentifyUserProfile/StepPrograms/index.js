@@ -16,7 +16,7 @@ export default function StepPrograms() {
 
   useEffect(() => {
     const getPrograms = async () => {
-      const response = await fetch(`http://localhost:5000/programa/${toggleMenu}`, { method: "GET" });
+      const response = await fetch(`https://guru-dos-pcs-backend.herokuapp.com/programa/${toggleMenu}`);
       setProgramas(await response.json());
     }
 
@@ -25,7 +25,7 @@ export default function StepPrograms() {
 
   useEffect(() => {
     const getAllCategories = async () => {
-      const response = await fetch("http://localhost:5000/categorias", { method: "GET" });
+      const response = await fetch("https://guru-dos-pcs-backend.herokuapp.com/categorias");
       setCategories(await response.json());
     }
 

@@ -28,7 +28,7 @@ export default function ModalFeedback() {
         howEasyToUnderstand,
         message)
       
-      const response = await fetch("http://localhost:5000/feedback", {
+      const response = await fetch("https://guru-dos-pcs-backend.herokuapp.com/feedback", {
         method: "POST",
         body: JSON.stringify({
           howEasyToGenerate,
