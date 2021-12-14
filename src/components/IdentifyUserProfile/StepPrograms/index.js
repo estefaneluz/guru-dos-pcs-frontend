@@ -41,6 +41,7 @@ export default function StepPrograms() {
         title="Diagnosticar Perfil"
         description="Quais programas você usa ou pretende utilizar?"
         helpText="Se o programa não estiver na lista, selecione um similiar."
+        id="select-programs"
       />
         <div className="button-wrapper">
           {!!categories.length && categories.map((category) => {

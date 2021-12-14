@@ -19,6 +19,7 @@ export default function StepComputerResult({computer}) {
         title="Match! Conheça o computador"
         description="De acordo com as informações fornecidas, geramos o computador adequado."
         mt="124px"
+        id="computer-result"
       />
       <DarkButton 
         className="ml-55-px"

@@ -72,7 +72,7 @@ export default function StepBudget({createComputer}) {
 				<label htmlFor="checkbox"> Sem valor estipulado </label>
 				<input checked={freeBudget} name="checkbox" type="checkbox" onChange={(e) => handleChecked(e)} />
 			</div>
-			<DarkButton click={createComputer} label="Gerar Computador" icon={arrowRight} />
+			<DarkButton click={createComputer} label="Gerar Computador" icon={arrowRight} link='#computer-result' />
 		</div>
 	</>
 	);

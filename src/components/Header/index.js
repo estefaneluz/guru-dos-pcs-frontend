@@ -2,7 +2,7 @@ import React from 'react';
 import './styles.css';
 import logoIcon from '../../assets/logo.png';
 
-export default function Header() {
+export default function Header({ onClick }) {
 	return (
 		<header>
 			<div className="logo">
@@ -13,7 +13,9 @@ export default function Header() {
 				<h1>
 					Encontre o <span>computador adequado</span> ao seu <span> perfil </span>
 				</h1>
-				<button className="btn-light-green">Descubra agora</button>
+				<a href="#select-programs" className="btn-light-green" onClick={onClick}>
+					Descubra agora
+				</a>
 			</div>
 		</header>
 	);

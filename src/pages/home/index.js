@@ -8,7 +8,6 @@ import ModalAlert from '../../components/Modal/ModalAlert'
 import ModalBase from '../../components/Modal'
 import { Alert, Snackbar} from '@mui/material/'
 
-
 import StepPrograms from '../../components/IdentifyUserProfile/StepPrograms'
 import StepBudget from '../../components/IdentifyUserProfile/StepBudget'
 import StepComputerResult from '../../components/IdentifyUserProfile/StepComputerResult'
@@ -21,6 +20,7 @@ const AlertMui = React.forwardRef(function Alert(props, ref) {
 });
 
 export default function Home() {
+  const [openStep, setOpenStep] = useState(false);
   const [openFeedback, setOpenFeedback] = useState(false);
   const [openItemDetails, setOpenItemDetails] = useState(false);
   const [modal, setModal] = useState({type: '', status: false});
@@ -125,10 +125,14 @@ export default function Home() {
 
   return (
     <>
-      <Header />
+      <Header onClick={() => setOpenStep(true)} />
       <UserProfileStatesContext.Provider value={userProfileContextValues}>
-        <StepPrograms />
-        <StepBudget createComputer={createComputer} />
+        {openStep &&
+          <>
+            <StepPrograms />
+            <StepBudget createComputer={createComputer} />
+          </>
+        }
         {showComputer &&
           <ModalStatesContext.Provider value={modalContextValues}>
             <StepComputerResult computer={computer} />
@@ -146,9 +150,12 @@ export default function Home() {
           <button className='btn --decline' onClick={handleCloseModal}>
             Não
           </button>
-          <button className='btn --confirm' onClick={continueAndShowComputer}>
+          <a
+            href="#computer-result"
+            className='btn --confirm'
+            onClick={continueAndShowComputer}>
             Sim
-          </button>
+          </a>
         </div>
       </ModalBase>
       <Snackbar open={error} autoHideDuration={6000} onClose={() => setError(false)}>
