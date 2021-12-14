@@ -4,6 +4,8 @@ import './styles.css'
 import Header from '../../components/Header'
 import ModalFeedback from '../../components/Modal/ModalFeedback'
 import MotalItemDetails from '../../components/Modal/ModaItemDetails'
+import { Alert, Snackbar} from '@mui/material/';
+
 
 import StepPrograms from '../../components/IdentifyUserProfile/StepPrograms'
 import StepBudget from '../../components/IdentifyUserProfile/StepBudget'
@@ -12,9 +14,14 @@ import StepComputerResult from '../../components/IdentifyUserProfile/StepCompute
 import { UserProfileStatesContext } from '../../contexts/UserProfileStatesContext'
 import { ModalStatesContext } from '../../contexts/ModalStatesContext'
 
+const AlertMui = React.forwardRef(function Alert(props, ref) {
+  return <Alert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
 export default function Home() {
   const [openFeedback, setOpenFeedback] = useState(false);
   const [openItemDetails, setOpenItemDetails] = useState(false);
+  const [error, setError] = useState(false);
 
   const [selectedPrograms, setSelectedPrograms] = useState([]);
 	const [budget, setBudget ] = useState([ 1500, 3000 ]);
@@ -80,7 +87,7 @@ export default function Home() {
         setComputer(await response.json());
       }
     } catch {
-      return;
+      setError(true);
     }
   }
 
@@ -103,6 +110,12 @@ export default function Home() {
             <ModalFeedback />
           </ModalStatesContext.Provider>
         }
+
+      <Snackbar open={error} autoHideDuration={6000} onClose={() => setError(false)}>
+        <AlertMui onClose={() => setError(false)} severity="error" sx={{ width: '100%' }}>
+          Ocorreu um erro ao gerar o computador. Tente novamente mais tarde.
+        </AlertMui>
+      </Snackbar>
       </ UserProfileStatesContext.Provider>
     </>
   )
