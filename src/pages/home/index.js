@@ -5,6 +5,7 @@ import Header from '../../components/Header'
 import ModalFeedback from '../../components/Modal/ModalFeedback'
 import MotalItemDetails from '../../components/Modal/ModaItemDetails'
 import ModalAlert from '../../components/Modal/ModalAlert'
+import ModalBase from '../../components/Modal'
 import { Alert, Snackbar} from '@mui/material/'
 
 
@@ -22,7 +23,7 @@ const AlertMui = React.forwardRef(function Alert(props, ref) {
 export default function Home() {
   const [openFeedback, setOpenFeedback] = useState(false);
   const [openItemDetails, setOpenItemDetails] = useState(false);
-  const [openModal, setOpenModal] = useState(false); 
+  const [modal, setModal] = useState({type: '', status: false});
   const [error, setError] = useState(false);
 
   const [selectedPrograms, setSelectedPrograms] = useState([]);
@@ -34,6 +35,14 @@ export default function Home() {
 
   const handleModalFeedback = () => setOpenFeedback(!openFeedback)
   const handleModalItens = () => setOpenItemDetails(!openItemDetails)
+  const handleCloseModal = () => setModal({type: '', status: false})
+
+  const continueAndShowComputer = () => {
+    setComputer(
+      prevState => { return { ...prevState, status: true }}
+    )
+    handleCloseModal()
+  }
   
   const userProfileContextValues = {
     selectedPrograms,
@@ -55,10 +64,12 @@ export default function Home() {
     setComputer({});
     setShowComputer(false);
 
-    //verifica se não tiver selecionado nenhum programa
     if(!selectedPrograms.length) {
-      setOpenModal(true)
-      //alert
+      setModal({
+        type: 'alert',
+        status: true
+      })
+      //setOpenModalAlert(true)
       return;
     }
 
@@ -98,7 +109,10 @@ export default function Home() {
     if(computer?.status === true) {
       setShowComputer(true);
     } else if(!!computer.computer && !computer.status) {
-      //setShowModal()
+      setModal({
+        type: 'to-continue',
+        status: true
+      })
     }
   }, [computer])
 
@@ -116,8 +130,20 @@ export default function Home() {
           </ModalStatesContext.Provider>
         }
 
-      <ModalAlert handleModal={() => setOpenModal(false)} open={openModal} />
-
+      <ModalAlert handleModal={handleCloseModal} open={modal.type === 'alert' && modal.status} />
+      <ModalBase handleModal={handleCloseModal} open={modal.type === 'to-continue' && modal.status}>
+        <p className='width-100px'>
+          Não é possível gerar um computador dentro do orçamento informado. Deseja gerar mesmo assim?
+        </p>
+        <div className='row align-end'>
+          <button className='btn --decline' onClick={handleCloseModal}>
+            Não
+          </button>
+          <button className='btn --confirm' onClick={continueAndShowComputer}>
+            Sim
+          </button>
+        </div>
+      </ModalBase>
       <Snackbar open={error} autoHideDuration={6000} onClose={() => setError(false)}>
         <AlertMui onClose={() => setError(false)} severity="error" sx={{ width: '100%' }}>
           Ocorreu um erro ao gerar o computador. Tente novamente mais tarde.

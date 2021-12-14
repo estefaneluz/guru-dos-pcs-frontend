@@ -13,11 +13,9 @@
     width: max-content;
 }
 
-.btn-confirm {
+.btn {
     all: unset;
     cursor: pointer;
-    
-    background-color: #5CD5A8;
     color: #000000;
     border-radius: 6px;
     width: 80px;
@@ -26,6 +24,14 @@
     padding: 5px 10px;
 
     align-self: flex-end;
+}
+
+.btn.--confirm {
+    background-color: #5CD5A8;
+}
+
+.btn.--decline {
+    background-color: #f35d5d;
 }
 
 .btn-dark-green {
