@@ -21,6 +21,10 @@ h3 {
   background-color: #FFFFFF;
   padding-top: 18px;
   border-radius:  6px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .item-img-container img {
