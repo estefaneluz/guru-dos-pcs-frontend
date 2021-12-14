@@ -4,7 +4,8 @@ import './styles.css'
 import Header from '../../components/Header'
 import ModalFeedback from '../../components/Modal/ModalFeedback'
 import MotalItemDetails from '../../components/Modal/ModaItemDetails'
-import { Alert, Snackbar} from '@mui/material/';
+import ModalAlert from '../../components/Modal/ModalAlert'
+import { Alert, Snackbar} from '@mui/material/'
 
 
 import StepPrograms from '../../components/IdentifyUserProfile/StepPrograms'
@@ -21,6 +22,7 @@ const AlertMui = React.forwardRef(function Alert(props, ref) {
 export default function Home() {
   const [openFeedback, setOpenFeedback] = useState(false);
   const [openItemDetails, setOpenItemDetails] = useState(false);
+  const [openModal, setOpenModal] = useState(false); 
   const [error, setError] = useState(false);
 
   const [selectedPrograms, setSelectedPrograms] = useState([]);
@@ -55,6 +57,7 @@ export default function Home() {
 
     //verifica se não tiver selecionado nenhum programa
     if(!selectedPrograms.length) {
+      setOpenModal(true)
       //alert
       return;
     }
@@ -92,8 +95,10 @@ export default function Home() {
   }
 
   useEffect(() => {
-    if(!!computer.computer) {
+    if(computer?.status === true) {
       setShowComputer(true);
+    } else if(!!computer.computer && !computer.status) {
+      //setShowModal()
     }
   }, [computer])
 
@@ -110,6 +115,8 @@ export default function Home() {
             <ModalFeedback />
           </ModalStatesContext.Provider>
         }
+
+      <ModalAlert handleModal={() => setOpenModal(false)} open={openModal} />
 
       <Snackbar open={error} autoHideDuration={6000} onClose={() => setError(false)}>
         <AlertMui onClose={() => setError(false)} severity="error" sx={{ width: '100%' }}>

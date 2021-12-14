@@ -17,7 +17,8 @@ const modal_style = {
   p: 4,
   display: 'flex',
   flexDirection: 'column',
-  rowGap: '36px'
+  rowGap: '36px',
+  color: 'white'
 };
 
 export default function ModalBase({children, handleModal, open}) {
