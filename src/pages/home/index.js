@@ -69,7 +69,6 @@ export default function Home() {
         type: 'alert',
         status: true
       })
-      //setOpenModalAlert(true)
       return;
     }
 

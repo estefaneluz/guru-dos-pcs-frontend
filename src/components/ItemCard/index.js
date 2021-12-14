@@ -1,6 +1,7 @@
 import React from 'react';
 import threeDotsIcon from '../../assets/three-dots.svg';
 import './styles.css';
+import maskCurrencyBRL from '../../functions/maskCurrencyBRL'
 
 export default function ItemCard(props) {
 	return (
@@ -33,7 +34,7 @@ export default function ItemCard(props) {
             <span>{`${props.content[1].label}: `}</span>
             {props.content[1].value}
           </p>
-          <p className="item-price">R$ {props.price}</p>
+          <p className="item-price">{maskCurrencyBRL(props.price)}</p>
         </div>
       </div>
     </div>

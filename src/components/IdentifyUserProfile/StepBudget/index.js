@@ -4,6 +4,7 @@ import { Box, Slider } from '@mui/material/';
 import DarkButton from '../../DarkButton';
 import Step from '../../Step';
 import { UserProfileStatesContext } from '../../../contexts/UserProfileStatesContext';
+import maskCurrencyBRL from '../../../functions/maskCurrencyBRL'
 
 import './styles.css';
 
@@ -12,12 +13,6 @@ function valuetext(value) {
 }
 
 const minDistance = 1;
-
-const currencyBRL = (value) => {
-	const formattedValue = value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-
-	return formattedValue;
-};
 
 export default function StepBudget({createComputer}) {
 	const { budget, setBudget, freeBudget, setFreeBudget } = useContext(UserProfileStatesContext);
@@ -54,7 +49,7 @@ export default function StepBudget({createComputer}) {
 						onChange={handleBudget}
 						valueLabelDisplay="auto"
 						getAriaValueText={valuetext}
-						valueLabelFormat={currencyBRL}
+						valueLabelFormat={maskCurrencyBRL}
 						min={1000}
 						max={10000}
 						sx={{ color: 'white' }}
