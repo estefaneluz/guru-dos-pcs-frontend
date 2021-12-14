@@ -10,7 +10,7 @@ import './styles.css';
 
 export default function StepComputerResult({computer}) {
 
-  const { handleModalFeedback, handleModalItens, handleSelectedComponent  } = useContext(ModalStatesContext);
+  const { handleModalFeedback, handleSelectedComponent  } = useContext(ModalStatesContext);
 	
 	return (
 	<>
