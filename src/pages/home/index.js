@@ -31,11 +31,17 @@ export default function Home() {
 	const [freeBudget, setFreeBudget] = useState(false); 
 
   const [computer, setComputer] = useState({});
+  const [selectedComponent, setSelectedComponent] = useState({})
   const [showComputer, setShowComputer] = useState(false);
 
   const handleModalFeedback = () => setOpenFeedback(!openFeedback)
   const handleModalItens = () => setOpenItemDetails(!openItemDetails)
   const handleCloseModal = () => setModal({type: '', status: false})
+
+  const handleSelectedComponent = (component) => {
+      setSelectedComponent(component)
+      handleModalItens()
+  }
 
   const continueAndShowComputer = () => {
     setComputer(
@@ -57,7 +63,9 @@ export default function Home() {
     openFeedback,
     handleModalFeedback,
     openItemDetails,
-    handleModalItens
+    handleModalItens,
+    handleSelectedComponent,
+    selectedComponent
   }
 
   const createComputer = async () => {

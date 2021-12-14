@@ -10,7 +10,7 @@ import './styles.css';
 
 export default function StepComputerResult({computer}) {
 
-  const { handleModalFeedback, handleModalItens  } = useContext(ModalStatesContext);
+  const { handleModalFeedback, handleModalItens, handleSelectedComponent  } = useContext(ModalStatesContext);
 	
 	return (
 	<>
@@ -31,7 +31,7 @@ export default function StepComputerResult({computer}) {
           return  (
           <ItemCard
             title={componente.nome}
-            openModal={handleModalItens}
+            openModal={() => handleSelectedComponent(componente)}
             icon={componente.icon}
             type={componente.componente}
             brand={componente.marca}

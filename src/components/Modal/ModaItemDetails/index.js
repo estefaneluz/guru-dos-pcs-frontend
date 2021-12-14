@@ -1,12 +1,16 @@
 import './styles.css'
 import React, { useContext } from 'react'
 import ModalBase from '../index'
-import processadorImg from '../../../assets/processador.png'
+import maskCurrencyBRL from '../../../functions/maskCurrencyBRL'
 
 import { ModalStatesContext } from '../../../contexts/ModalStatesContext'
 
 export default function ModalItemDetails() {
-  const { handleModalItens, openItemDetails } = useContext(ModalStatesContext);
+  const { 
+    handleModalItens, 
+    openItemDetails, 
+    selectedComponent: component 
+  } = useContext(ModalStatesContext);
 
   return (
     <>
@@ -15,20 +19,23 @@ export default function ModalItemDetails() {
         <div>
           <div className="row">
             <div className="item-img-container"> 
-              <img src={processadorImg} alt="Imagem do componetne"/>
-              <div className="modal-item-price">R$ 649,90</div>
+              <img src={component.image} alt={`Imagem do ${component.componente} ${component.nome}`}/>
+              <div className="modal-item-price">{maskCurrencyBRL(component.preco)}</div>
             </div>
 
             <div className="column">
               <div className="item-description">
-                <h4 className="item-title">Ryzen 3 3200G</h4>
+                <h4 className="item-title">{component.nome}</h4>
                 <div className="tag-container">
-                  <p className="tag --blue">Processador</p>
-                  <p className="tag --green">AMD</p>
+                  <p className="tag --blue">{component.componente}</p>
+                  <p className="tag --green">{component.marca}</p>
                 </div>
               </div>
               <ul className="item-details">
-                <li><span>Frequência: </span>3.2GHz - 4.5GHz</li>
+                {component.content.map(c => {
+                  return <li><span>{c.label}: </span>{c.value}</li>
+                })
+                }
               </ul>
             </div>
           </div>
