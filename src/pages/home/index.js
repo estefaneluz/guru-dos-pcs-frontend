@@ -123,6 +123,12 @@ export default function Home() {
     }
   }, [computer])
 
+  useEffect(() => {
+    if(showComputer) {
+      document.getElementById("computer-result").scrollIntoView()
+    }
+  }, [showComputer])
+
   return (
     <>
       <Header onClick={() => setOpenStep(true)} />
