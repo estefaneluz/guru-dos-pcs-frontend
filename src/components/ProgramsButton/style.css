@@ -3,6 +3,11 @@
   padding: 20px;
   border-radius: 6px;
   cursor: pointer;
+
+  max-width: 190px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .selected-button.alto {
