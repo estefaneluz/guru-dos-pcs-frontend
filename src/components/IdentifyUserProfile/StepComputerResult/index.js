@@ -21,6 +21,10 @@ export default function StepComputerResult({computer}) {
         mt="124px"
         id="computer-result"
       />
+      <p className='computer-amount ml-55-px'>
+				<span>Valor total: </span> 
+        {computer.valor_total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}
+			</p>
       <DarkButton 
         className="ml-55-px"
         label="Enviar Feedback"
