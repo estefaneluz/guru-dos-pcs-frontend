@@ -31,3 +31,34 @@
   grid-column-start: 2;
   grid-column-end: 3;
 }
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip img {
+  cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 300px;
+  background-color: #212B33;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  color: #fff;
+  font-size: 14px;
+  font-weight: 300;
+  text-align: center;
+
+  margin-left: 10px;
+ 
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
