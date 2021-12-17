@@ -42,6 +42,7 @@ export default function StepComputerResult({computer}) {
             brand={componente.marca}
             price={componente.preco}
             content={componente.content}
+            amount={componente.quantidade}
           />
         )})}
       </div>
