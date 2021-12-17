@@ -4,6 +4,7 @@ import Step from '../../Step';
 import ButtonMenu from '../../ButtonMenu';
 import ConsumeHeader from '../../ConsumeHeader';
 import ProgramsButton from '../../ProgramsButton';
+import Skeleton from '@mui/material/Skeleton';
 
 export default function StepPrograms() {
   const [toggleMenu, setToggleMenu] = useState(-1);
@@ -26,7 +27,7 @@ export default function StepPrograms() {
   useEffect(() => {
     const getAllCategories = async () => {
       const response = await fetch("https://guru-dos-pcs-backend.herokuapp.com/categorias");
-      setCategories(await response.json());
+      setTimeout(setCategories(await response.json()), 1000);
     }
 
     getAllCategories()
@@ -39,12 +40,16 @@ export default function StepPrograms() {
         mt="246px"
         mb="40px"
         title="Diagnosticar Perfil"
-        description="Quais programas você usa ou pretende utilizar?"
-        helpText="Se o programa não estiver na lista, selecione um similiar."
+        description={
+          !!categories.length ? 'Quais programas você usa ou pretende utilizar' : 'Carregando categorias...'
+        }
+        helpText={ !!categories.length ? "Se o programa não estiver na lista, selecione um similiar."
+          : ""
+        }
         id="select-programs"
       />
         <div className="button-wrapper">
-          {!!categories.length && categories.map((category) => {
+          {!!categories.length ? categories.map((category) => {
             return (
               <ButtonMenu 
                 key={category.id} 
@@ -53,7 +58,13 @@ export default function StepPrograms() {
                 classAtivated={toggleMenu === category.id ? '--activated' : ''}
               />
             )
-          })}
+          })
+          : <>
+              <Skeleton  sx={{ bgcolor: '#212B33' }} variant="rectangular" width={116} height={53} />
+              <Skeleton sx={{ bgcolor: '#212B33' }} variant="rectangular" width={116} height={53} />
+              <Skeleton sx={{ bgcolor: '#212B33' }} variant="rectangular" width={116} height={53} />
+              <Skeleton sx={{ bgcolor: '#212B33' }} variant="rectangular" width={116} height={53} />
+            </> }
         </div>
         {(toggleMenu !== -1) && <ConsumeHeader />}
         <div className="programs-button-wrapper">
